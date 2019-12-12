@@ -5,13 +5,14 @@ import WelcomeMessage from '../welcome-message/welcome-message'
 
 //style
 import './app.css';
-import styled, { css } from 'styled-components'
+import AppLayout from '../app-layout/app-layout'
+// import styled, { css } from 'styled-components'
 
 function App() {
   return (
-    <div>
+    <AppLayout>
       <WelcomeMessage />
-    </div>
+    </AppLayout>
     );
 }
 

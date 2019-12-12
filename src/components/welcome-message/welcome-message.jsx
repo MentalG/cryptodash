@@ -5,7 +5,7 @@ import './welcome-message.css'
 
 const WelcomeMessage = () => {
     return (
-        <div>Welcome CryptoDash</div>
+        <h1>Welcome CryptoDash</h1>
     )
 }
 

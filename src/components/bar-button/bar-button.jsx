@@ -3,11 +3,9 @@ import React from 'react'
 //styles
 import { ControlButtonElem } from './bar-button-layout'
 
-const BarButton = () => {
+const BarButton = ({ name, active = false }) => {
     return (
-        <ControlButtonElem>
-            Button
-        </ControlButtonElem>
+        <ControlButtonElem active={active}> { name } </ControlButtonElem>
     )
 }
 

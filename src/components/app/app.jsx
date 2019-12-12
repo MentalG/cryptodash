@@ -2,6 +2,7 @@ import React from 'react';
 
 //components
 import WelcomeMessage from '../welcome-message/welcome-message'
+import AppBar from '../app-bar/app-bar'
 
 //style
 import './app.css';
@@ -11,6 +12,7 @@ import AppLayout from '../app-layout/app-layout'
 function App() {
   return (
     <AppLayout>
+      <AppBar />
       <WelcomeMessage />
     </AppLayout>
     );

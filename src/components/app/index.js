@@ -1,10 +1,18 @@
 import React from 'react';
-import './App.css';
+
+//components
+import WelcomeMessage from '../welcome-message/welcome-message'
+
+//style
+import './app.css';
+import styled, { css } from 'styled-components'
 
 function App() {
   return (
-      <div> Hello world </div>
-  );
+    <div>
+      <WelcomeMessage />
+    </div>
+    );
 }
 
 export default App;

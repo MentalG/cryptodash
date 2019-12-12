@@ -1,4 +1,5 @@
 import React from 'react';
+import { AppProvider } from '../app-provider/app-provider';
 
 //components
 import AppBar from '../app-bar/app-bar'
@@ -7,13 +8,15 @@ import WelcomeMessage from '../welcome-message/welcome-message'
 //styles
 import { AppLayout } from './app-layout'
 
-function App() {
+function App () {
   return (
     <AppLayout>
-      <AppBar />
-      <WelcomeMessage />
+      <AppProvider>
+        <AppBar />
+        <WelcomeMessage />
+      </AppProvider>
     </AppLayout>
-    );
+  );
 }
 
 export default App;

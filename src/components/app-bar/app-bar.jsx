@@ -11,8 +11,8 @@ export default function() {
         <Bar> 
             <Logo> Crypto Dash </Logo>
             <div></div>
-            <BarButton active={false} name={'Dashboard'}/>
-            <BarButton active={true} name={'Settings'}/>
+            <BarButton name={'dashboard'}/>
+            <BarButton name={'settings'}/>
         </Bar>
     )
 }

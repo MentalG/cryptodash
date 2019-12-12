@@ -1,13 +1,11 @@
 import React from 'react';
 
 //components
-import WelcomeMessage from '../welcome-message/welcome-message'
 import AppBar from '../app-bar/app-bar'
+import WelcomeMessage from '../welcome-message/welcome-message'
 
-//style
-import './app.css';
-import AppLayout from '../app-layout/app-layout'
-// import styled, { css } from 'styled-components'
+//styles
+import { AppLayout } from './app-layout'
 
 function App() {
   return (

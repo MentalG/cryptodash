@@ -1,20 +1,18 @@
 import React from 'react'
 
-//styles
-import styled from 'styled-components'
+//components
+import BarButton from '../bar-button/bar-button'
 
-const Bar = styled.div`
-    display: grid;
-    grid-template-columns: 180px auto 100px 100px;
-`
+//styles
+import { Bar, Logo } from './app-bar-layout'
 
 export default function() {
     return (
         <Bar> 
-            <div> Crypto Dash </div>
+            <Logo> Crypto Dash </Logo>
             <div></div>
-            <div> Dashbord </div>
-            <div> Setting </div>
+            <BarButton />
+            <BarButton />
         </Bar>
     )
 }

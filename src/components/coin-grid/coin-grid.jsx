@@ -11,7 +11,6 @@ export default class CoinGrid extends Component {
 				{({ coinList }) => (
 					<CoinGridStyled>
 						{Object.keys(coinList).map((coinKey) => {
-                            console.log(coinList);
 							return <SelectableTitle> { coinKey } </SelectableTitle>
 						})}
 					</CoinGridStyled>

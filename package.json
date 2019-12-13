@@ -32,6 +32,7 @@
     ]
   },
   "devDependencies": {
+    "cryptocompare": "^1.0.0",
     "styled-components": "^4.4.1"
   }
 }

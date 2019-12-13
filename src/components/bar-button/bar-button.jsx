@@ -15,9 +15,9 @@ export default class BarButton extends Component {
 
         return (
             <AppContext.Consumer>
-                {({ pages, setPage }) => (
+                {({ page, setPage }) => (
                     <ControlButtonElem 
-                        active={pages === name}
+                        active={page === name}
                         onClick={() => setPage(name)}
                     > 
                         {this.toProperCase(name)}

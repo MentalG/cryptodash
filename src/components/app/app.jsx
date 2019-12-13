@@ -3,7 +3,7 @@ import { AppProvider } from '../app-provider/app-provider';
 
 //components
 import AppBar from '../app-bar/app-bar'
-import WelcomeMessage from '../welcome-message/welcome-message'
+import Settings from '../settings/settings'
 
 //styles
 import { AppLayout } from './app-layout'
@@ -13,7 +13,7 @@ function App () {
     <AppLayout>
       <AppProvider>
         <AppBar />
-        <WelcomeMessage />
+        <Settings />
       </AppProvider>
     </AppLayout>
   );

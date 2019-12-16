@@ -2,16 +2,25 @@ import React, { Component } from 'react';
 import { AppContext } from '../app-provider/app-provider';
 
 //components
-import { CoinGridStyled, SelectableTitle } from './coin-grid-layout';
+import { CoinGridStyled } from './coin-grid-layout';
+import CoinTile from '../coin-tile/coin-tile'
 
 export default class CoinGrid extends Component {
+
+	getCoinsToDisplay(object, number = 100) {
+		const lenghtOfObject = Object.keys(object).length
+		const countOfCoins = number
+
+		return Object.keys(object).slice(lenghtOfObject - countOfCoins - 1);
+	}
+
 	render() {
 		return (
 			<AppContext.Consumer>
 				{({ coinList }) => (
 					<CoinGridStyled>
-						{Object.keys(coinList).map((coinKey) => {
-							return <SelectableTitle> { coinKey } </SelectableTitle>
+						{this.getCoinsToDisplay(coinList, 200).map((coinKey, key) => {
+							return <CoinTile key={key} coinKey={coinKey}/>
 						})}
 					</CoinGridStyled>
 				)}

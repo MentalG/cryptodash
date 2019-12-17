@@ -7,7 +7,7 @@ import CoinTile from '../coin-tile/coin-tile'
 
 export default class CoinGrid extends Component {
 
-	getCoinsToDisplay(object, number = 100) {
+	getCoinsToDisplay(object, number = 100, isTopSection) {
 		const lenghtOfObject = Object.keys(object).length
 		const countOfCoins = number
 
@@ -15,11 +15,15 @@ export default class CoinGrid extends Component {
 	}
 
 	render() {
+		const { topSection } = this.props
+		console.log(topSection);
+		
+
 		return (
 			<AppContext.Consumer>
 				{({ coinList }) => (
 					<CoinGridStyled>
-						{this.getCoinsToDisplay(coinList, 200).map((coinKey, key) => {
+						{this.getCoinsToDisplay(coinList, 10, topSection).map((coinKey, key) => {
 							return <CoinTile key={key} coinKey={coinKey}/>
 						})}
 					</CoinGridStyled>

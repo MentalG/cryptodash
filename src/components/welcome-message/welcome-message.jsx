@@ -9,7 +9,7 @@ const WelcomeMessage = () => {
 		<AppContext.Consumer>
 			{({ firstVisit }) =>
 				firstVisit ? (
-					<div>
+					<div className={'welcome'}>
 						Welcome to CryptoDash, please select your favorite coins to begin.{' '}
 					</div>
 				) : null

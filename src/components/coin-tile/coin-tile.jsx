@@ -2,24 +2,45 @@ import React, { Component } from 'react';
 
 //components
 import { AppContext } from '../app-provider/app-provider';
-import { SelectableTitle } from '../coin-grid/coin-grid-layout';
+import { SelectableTile, DisableTitle, DeletableTile } from '../coin-grid/coin-grid-layout';
 import CoinHeaderGrid from '../coin-header-grid/coin-header-grid';
 import CoinImage from '../coin-image/coin-image';
 
 export default class CoinTile extends Component {
+	clickHandler(topSection, coinKey, addCoin, removeCoin) {
+		return topSection ? removeCoin(coinKey) : addCoin(coinKey);
+	}
+
 	render() {
-		const { coinKey } = this.props;
+		const { coinKey, topSection } = this.props;
 
 		return (
 			<AppContext.Consumer>
-				{({ coinList }) => {
-					const TileClass = SelectableTitle;
+				{({ coinList, addCoin, removeCoin, isInFavorites }) => {
+					let TileClass = SelectableTile;
 					let coin = coinList[coinKey];
 
-					return <TileClass>
-                        <CoinHeaderGrid name={coin.CoinName} symbol={coin.Symbol} />
-                        <CoinImage coin={coin}/>
-                    </TileClass>;
+					if (topSection) {
+						TileClass = DeletableTile
+					} else if (isInFavorites(coinKey)) {
+						TileClass = DisableTitle
+					}
+
+					return (
+						<TileClass
+							onClick={() =>
+								this.clickHandler(
+									topSection,
+									coinKey,
+									addCoin,
+									removeCoin,
+									isInFavorites,
+								)
+							}>
+							<CoinHeaderGrid name={coin.CoinName} symbol={coin.Symbol} />
+							<CoinImage coin={coin} />
+						</TileClass>
+					);
 				}}
 			</AppContext.Consumer>
 		);

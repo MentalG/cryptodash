@@ -3,29 +3,32 @@ import { AppContext } from '../app-provider/app-provider';
 
 //components
 import { CoinGridStyled } from './coin-grid-layout';
-import CoinTile from '../coin-tile/coin-tile'
+import CoinTile from '../coin-tile/coin-tile';
 
 export default class CoinGrid extends Component {
 
-	getCoinsToDisplay(object, number = 100, isTopSection) {
-		const lenghtOfObject = Object.keys(object).length
-		const countOfCoins = number
+	getCoins = (object, length, number) => object.slice(length - number - 1)
 
-		return Object.keys(object).slice(lenghtOfObject - countOfCoins - 1);
+	getCoinsToDisplay(object, isTopSection, favorites) {
+		const objectKeys = Object.keys(object);
+		const lenghtOfObject = objectKeys.length;
+		const allCoins = this.getCoins(objectKeys, lenghtOfObject, 50)
+
+		return isTopSection ? favorites : allCoins
 	}
 
 	render() {
-		const { topSection } = this.props
-		console.log(topSection);
-		
+		const { topSection } = this.props;
 
 		return (
 			<AppContext.Consumer>
-				{({ coinList }) => (
+				{({ coinList, favorites }) => (
 					<CoinGridStyled>
-						{this.getCoinsToDisplay(coinList, 10, topSection).map((coinKey, key) => {
-							return <CoinTile key={key} coinKey={coinKey}/>
-						})}
+						{this.getCoinsToDisplay(coinList, topSection, favorites).map(
+							(coinKey, key) => {
+								return <CoinTile key={key} coinKey={coinKey} topSection={topSection}/>;
+							},
+						)}
 					</CoinGridStyled>
 				)}
 			</AppContext.Consumer>

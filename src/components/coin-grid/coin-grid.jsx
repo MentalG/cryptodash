@@ -9,7 +9,7 @@ export default class CoinGrid extends Component {
 	getCoins = (object, length, number) => object.slice(length - number - 1);
 
 	getLowerSectionCoins(filteredCoins, allCoins) {
-		return (filteredCoins && Object.keys(filteredCoins)) || allCoins
+		return (filteredCoins && Object.keys(filteredCoins)) || allCoins;
 	}
 
 	getCoinsToDisplay(object, isTopSection, favorites, filteredCoins) {
@@ -17,7 +17,9 @@ export default class CoinGrid extends Component {
 		const lenghtOfObject = objectKeys.length;
 		const allCoins = this.getCoins(objectKeys, lenghtOfObject, 200);
 
-		return isTopSection ? favorites : this.getLowerSectionCoins(filteredCoins, allCoins)
+		return isTopSection
+			? favorites
+			: this.getLowerSectionCoins(filteredCoins, allCoins);
 	}
 
 	render() {

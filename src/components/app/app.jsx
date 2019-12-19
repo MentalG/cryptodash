@@ -8,6 +8,7 @@ import Content from '../content/content';
 
 //styles
 import { AppLayout } from './app-layout';
+import Dashboard from '../dashboard/dashboard';
 
 function App() {
 	return (
@@ -16,6 +17,7 @@ function App() {
 				<AppBar />
 				<Content>
 					<Settings />
+					<Dashboard />
 				</Content>
 			</AppProvider>
 		</AppLayout>

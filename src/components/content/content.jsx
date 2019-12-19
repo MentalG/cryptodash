@@ -5,9 +5,12 @@ export default class Content extends Component {
     render() {
         return (
             <AppContext.Consumer>
-                {({coinList}) => {
+                {({ coinList, firstVisit, prices }) => {
                     if (!coinList) {
                         return <div> Loading coins... </div>
+                    }
+                    if (!firstVisit && !prices) {
+                        return <div> Loading prices... </div>
                     }
                     return <div> { this.props.children } </div>
                 }}

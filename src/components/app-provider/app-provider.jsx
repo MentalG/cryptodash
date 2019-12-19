@@ -20,6 +20,7 @@ export class AppProvider extends Component {
 			addCoin: this.addCoin,
 			removeCoin: this.removeCoin,
 			isInFavorites: this.isInFavorites,
+			setFilteredCoins: this.setFilteredCoins,
 			confirmFavorites: this.confirmFavorites,
 			coinList: null,
 		};
@@ -45,6 +46,8 @@ export class AppProvider extends Component {
 	};
 
 	isInFavorites = key => _.includes(this.state.favorites, key)
+
+	setFilteredCoins = filteredCoins => this.setState({filteredCoins})
 
 	fetchCoins = async () => {
 		let coinList = (await cc.coinList()).Data;

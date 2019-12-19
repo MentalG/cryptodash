@@ -9,7 +9,7 @@ import {
 export const CoinGridStyled = styled.div`
 	display: grid;
 	padding-top: 50px;
-	grid-template-columns: repeat(5, 1fr);
+	grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
 	grid-gap: 15px;
 `;
 

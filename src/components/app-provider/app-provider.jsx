@@ -13,7 +13,7 @@ export class AppProvider extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			page: 'dashboard',
+			page: 'settings',
 			favorites: ['BTC', 'ETH', 'XMR', 'DOGE'],
 			...this.savedSettings(),
 			setPage: this.setPage,
